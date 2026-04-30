@@ -1,1 +1,6 @@
-<p>detalhe-do-imbuimento works!</p>
+<ul>
+  <li *ngFor="let imbu of this.imbuimentSelecionado.itens">
+    {{ imbu?.quantidade }}
+    {{ imbu?.nomeItem }}
+  </li>
+</ul>

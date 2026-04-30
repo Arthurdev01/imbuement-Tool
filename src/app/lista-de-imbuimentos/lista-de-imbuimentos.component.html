@@ -1,5 +1,8 @@
 <ul>
-  <li *ngFor="let imbu of this.imbuiment.imbuimentos ">
-    <button (click)="detalhes()">{{ imbu.nome }}</button>
+  <li *ngFor="let imbu of this.imbuiment.imbuimentos">
+    <button (click)="detalhes(imbu)">{{ imbu.nome }}</button>
   </li>
 </ul>
+<app-detalhe-do-imbuimento
+  [imbuimentSelecionado]="imbuimentSelecionado"
+></app-detalhe-do-imbuimento>
