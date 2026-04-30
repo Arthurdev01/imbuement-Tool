@@ -1,21 +1,25 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component } from '@angular/core';
-import { ImbuimentService } from '../imbuiment.service';
+import { Component, Input } from '@angular/core';
+import { ImbuimentService } from '../../service/imbuiment.service';
+import { DetalheDoImbuimentoComponent } from "../detalhe-do-imbuimento/detalhe-do-imbuimento.component";
+
 
 @Component({
   selector: 'app-lista-de-imbuimentos',
-  imports: [CommonModule,NgFor],
+  imports: [CommonModule, NgFor, DetalheDoImbuimentoComponent],
   templateUrl: './lista-de-imbuimentos.component.html',
   styleUrl: './lista-de-imbuimentos.component.css'
 })
 export class ListaDeImbuimentosComponent {
 
+imbuimentSelecionado: any = null;
+
 constructor(public imbuiment: ImbuimentService){
 this.imbuiment.imbuimentos
 }
 
-detalhes() {
-    console.log('Button clicked!');
+detalhes(imbuimentSelecionado: any = null) {
+ this.imbuimentSelecionado = imbuimentSelecionado
   }
 
 }
