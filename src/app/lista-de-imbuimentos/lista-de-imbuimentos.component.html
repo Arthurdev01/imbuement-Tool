@@ -1,1 +1,5 @@
-<p>lista-de-imbuimentos works!</p>
+<ul>
+  <li *ngFor="let imbu of this.imbuiment.imbuimentos ">
+    <button (click)="detalhes()">{{ imbu.nome }}</button>
+  </li>
+</ul>
