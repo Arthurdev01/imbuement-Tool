@@ -1,6 +1,20 @@
 <ul>
-  <li *ngFor="let imbu of this.imbuimentSelecionado.itens">
+  <li *ngFor="let imbu of this.imbuimentSelecionado?.itens">
     {{ imbu?.quantidade }}
     {{ imbu?.nomeItem }}
+    <input [(ngModel)]="imbu.preco" placeholder="Digite o preço" />
+    {{ maisBarato(imbu) }}
   </li>
+
+  <p>Preços dos Itens No Market {{ calcularTotal() }}</p>
+
+  <p>Preços dos Gold Tokens {{ calcularTotalGoldToken() }}</p>
+
+  @if (imbuimentSelecionado) {
+    <p>Preço dos Itens com a Taxa {{ calcularTotalTaxa() }}</p>
+  }
+
+  @if (imbuimentSelecionado) {
+    <p>Preço do Gold Token com a Taxa {{ calcularTotalTaxaGold() }}</p>
+  }
 </ul>

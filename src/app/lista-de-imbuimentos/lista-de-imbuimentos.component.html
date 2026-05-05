@@ -1,8 +1,13 @@
 <ul>
+  <input
+    [(ngModel)]="goldTokenValor"
+    placeholder="Digite o valor do Gold Token"
+  />
   <li *ngFor="let imbu of this.imbuiment.imbuimentos">
     <button (click)="detalhes(imbu)">{{ imbu.nome }}</button>
   </li>
 </ul>
 <app-detalhe-do-imbuimento
   [imbuimentSelecionado]="imbuimentSelecionado"
+  [goldTokenValor]="goldTokenValor"
 ></app-detalhe-do-imbuimento>
