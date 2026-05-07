@@ -27,4 +27,10 @@
   @if (imbuimentSelecionado) {
     <p>Preço do Gold Token com a Taxa {{ calcularTotalTaxaGold() }}</p>
   }
+  @if (imbuimentSelecionado) {
+    <p>
+      {{ qualMaisBarato().melhor }} é {{ qualMaisBarato().diferenca }} mais
+      barato
+    </p>
+  }
 </ul>
