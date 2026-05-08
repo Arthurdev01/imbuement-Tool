@@ -4,7 +4,7 @@ Uma ferramenta em Angular para comparar o custo de imbuements entre compra diret
 
 O projeto foi criado para transformar uma conta manual e repetitiva em uma interface simples, visual e rápida de usar. O usuário informa o valor do Gold Token e os preços dos itens no market; a aplicação calcula os totais, aplica a taxa e indica qual opção fica mais barata.
 
-## Visão Geral
+## 🎯 Visão Geral
 
 O Imbuement Tool ajuda jogadores a responder uma pergunta prática:
 
@@ -12,7 +12,7 @@ O Imbuement Tool ajuda jogadores a responder uma pergunta prática:
 
 A aplicação organiza os imbuements por categoria, mostra os itens necessários, calcula os custos automaticamente e destaca visualmente a melhor opção.
 
-## Funcionalidades
+## ✨ Funcionalidades
 
 - Seleção de imbuement por categoria:
   - Strike (Critical Hit)
@@ -30,7 +30,7 @@ A aplicação organiza os imbuements por categoria, mostra os itens necessários
 - Interface dark com visual pastel e componentes com efeito glassmorphism.
 - Layout responsivo para telas menores.
 
-## Stack
+## 🧰 Stack
 
 - Angular 19
 - TypeScript
@@ -39,7 +39,7 @@ A aplicação organiza os imbuements por categoria, mostra os itens necessários
 - Lucide Angular
 - CSS puro
 
-## Como Rodar
+## 🚀 Como Rodar
 
 Instale as dependências:
 
@@ -59,7 +59,7 @@ Acesse no navegador:
 http://localhost:4200
 ```
 
-## Build
+## 📦 Build
 
 Para gerar a versão de produção:
 
@@ -73,7 +73,7 @@ Os arquivos finais serão gerados em:
 dist/imbuement-tool
 ```
 
-## Estrutura Principal
+## 🏗️ Estrutura Principal
 
 ```text
 src/
@@ -94,7 +94,7 @@ src/
   styles.css
 ```
 
-## Como a Aplicação Funciona
+## 🧠 Como a Aplicação Funciona
 
 ### 1. Fonte dos dados
 
@@ -135,7 +135,7 @@ O resultado da comparação muda visualmente:
 - Quantidades e status aparecem em formato de badge.
 - O imbuement selecionado recebe um estado ativo mais forte.
 
-## Decisões Técnicas
+## 🛠️ Decisões Técnicas
 
 ### Componentização
 
@@ -168,7 +168,7 @@ O projeto usa CSS puro com foco em:
 - cards com efeito de vidro fosco
 - responsividade com media query
 
-## Pontos de Evolução
+## 📈 Pontos de Evolução
 
 Algumas melhorias possíveis para próximas versões:
 
@@ -179,7 +179,7 @@ Algumas melhorias possíveis para próximas versões:
 - Exibir histórico de preços.
 - Melhorar a acessibilidade com labels e feedback para leitores de tela.
 
-## Scripts Disponíveis
+## 📜 Scripts Disponíveis
 
 ```bash
 npm start
@@ -199,7 +199,7 @@ npm test
 
 Executa os testes configurados pelo Angular.
 
-## Status do Projeto
+## ✅ Status do Projeto
 
 Projeto em desenvolvimento, com foco em praticar:
 
@@ -212,6 +212,6 @@ Projeto em desenvolvimento, com foco em praticar:
 - organização visual com CSS
 - lógica de cálculo no componente
 
-## Autor
+## 👤 Autor
 
 Projeto desenvolvido como estudo prático de Angular, com foco em criar uma interface útil, apresentável e fácil de evoluir.
