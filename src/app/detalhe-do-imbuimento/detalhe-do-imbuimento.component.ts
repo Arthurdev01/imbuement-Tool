@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ImbuimentService } from '../../service/imbuiment.service';
 import { FormsModule } from '@angular/forms';
-import { reduce } from 'rxjs';
+import { NgxMaskDirective } from 'ngx-mask';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-detalhe-do-imbuimento',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,NgxMaskDirective,LucideAngularModule],
   templateUrl: './detalhe-do-imbuimento.component.html',
   styleUrl: './detalhe-do-imbuimento.component.css'
 })
 export class DetalheDoImbuimentoComponent {
 @Input() imbuimentSelecionado: any = null;
 @Input() goldTokenValor: any = null;
+
 
 maisBarato(item: any){
   const custoMarket = (item.preco ?? 0) * item.quantidade;
@@ -49,14 +50,30 @@ calcularTotalTaxaGold(){
 }
 
 qualMaisBarato(){
-Math.abs(this.calcularTotalTaxaGold() - this.calcularTotalTaxa())
+ const diferenca = Math.abs(this.calcularTotalTaxaGold() - this.calcularTotalTaxa());
 
  if(this.calcularTotalTaxaGold() < this.calcularTotalTaxa()){
-   return { melhor: "Gold Token", diferenca: Math.abs(this.calcularTotalTaxaGold() - this.calcularTotalTaxa())
- }
+   return { melhor: "Gold Token", diferenca: diferenca }
  }else{
-return { melhor: "Market", diferenca: Math.abs(this.calcularTotalTaxaGold() - this.calcularTotalTaxa())
+return { melhor: "Market", diferenca: diferenca }
  }
 }
+
+goldTokenMaisBarato(){
+  return this.qualMaisBarato().melhor === "Gold Token";
 }
+
+marketMaisBarato(){
+  return this.qualMaisBarato().melhor === "Market";
+}
+
+async copiarNome(nome: string) {
+  try {
+    await navigator.clipboard.writeText(nome);
+    console.log('Texto copiado com sucesso!');
+  } catch (err) {
+    console.error('Falha ao copiar: ', err);
+  }
+}
+
 }

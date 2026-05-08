@@ -1,36 +1,68 @@
-<ul>
-  <li *ngFor="let imbu of this.imbuimentSelecionado?.itens; index as i">
-    {{ imbu?.quantidade }}
-    {{ imbu?.nomeItem }}
+<div class="container">
+  <div class="items">
+    <div
+      class="item"
+      *ngFor="let imbu of imbuimentSelecionado?.itens; index as i"
+    >
+      <div class="item-name">
+        <strong>{{ imbu?.quantidade }}x</strong>
 
-    <input [(ngModel)]="imbu.preco" placeholder="Digite o preço" />
+        <span>{{ imbu?.nomeItem }}</span>
 
-    @if (i < quantosComToken()) {
-      <p>Comprar com Gold Token</p>
-    } @else {
-      <p>Comprar pelo Market</p>
-    }
-  </li>
+        <lucide-icon
+          name="copy"
+          class="icon-copiar"
+          (click)="copiarNome(imbu.nomeItem)"
+        ></lucide-icon>
+      </div>
 
-  @if (imbuimentSelecionado) {
-    <p>Preços dos Itens no Market {{ calcularTotal() }}</p>
-  }
+      <input
+        [(ngModel)]="imbu.preco"
+        mask="separator.2"
+        thousandSeparator=","
+        decimalMarker="."
+        placeholder="Preço no market"
+      />
 
-  @if (imbuimentSelecionado) {
-    <p>Preços dos Gold Tokens {{ calcularTotalGoldToken() }}</p>
-  }
+      @if (i < quantosComToken()) {
+        <span class="status token">Gold Token</span>
+      } @else {
+        <span class="status market">Market</span>
+      }
+    </div>
+  </div>
 
-  @if (imbuimentSelecionado) {
-    <p>Preço dos Itens com a Taxa {{ calcularTotalTaxa() }}</p>
-  }
+  <div class="resumo">
+    <div class="resumo-market">
+      <span>Market</span>
+      <strong>{{ calcularTotal().toLocaleString("en-US") }}</strong>
+    </div>
 
-  @if (imbuimentSelecionado) {
-    <p>Preço do Gold Token com a Taxa {{ calcularTotalTaxaGold() }}</p>
-  }
-  @if (imbuimentSelecionado) {
-    <p>
-      {{ qualMaisBarato().melhor }} é {{ qualMaisBarato().diferenca }} mais
-      barato
-    </p>
-  }
-</ul>
+    <div class="resumo-token">
+      <span>Gold Token</span>
+      <strong>{{ calcularTotalGoldToken().toLocaleString("en-US") }}</strong>
+    </div>
+
+    <div class="resumo-market">
+      <span>Market + Taxa</span>
+      <strong>{{ calcularTotalTaxa().toLocaleString("en-US") }}</strong>
+    </div>
+
+    <div class="resumo-token">
+      <span>Token + Taxa</span>
+      <strong>{{ calcularTotalTaxaGold().toLocaleString("en-US") }}</strong>
+    </div>
+
+    <div
+      class="melhor"
+      [class.melhor-market]="marketMaisBarato()"
+      [class.melhor-token]="goldTokenMaisBarato()"
+    >
+      <span>{{ qualMaisBarato().melhor }}</span>
+      <strong
+        >{{ qualMaisBarato().diferenca.toLocaleString("en-US") }} mais
+        barato</strong
+      >
+    </div>
+  </div>
+</div>
