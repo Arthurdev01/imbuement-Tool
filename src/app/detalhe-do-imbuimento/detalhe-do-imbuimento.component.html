@@ -7,12 +7,13 @@
       <div class="item-name">
         <strong>{{ imbu?.quantidade }}x</strong>
 
-        <span>{{ imbu?.nomeItem }}</span>
+        <span [class.nome-copiado]="itemCopiadoIndex === i">{{ imbu?.nomeItem }}</span>
 
         <lucide-icon
           name="copy"
           class="icon-copiar"
-          (click)="copiarNome(imbu.nomeItem)"
+          [class.icon-copiado]="itemCopiadoIndex === i"
+          (click)="copiarNome(imbu.nomeItem, i)"
         ></lucide-icon>
       </div>
 

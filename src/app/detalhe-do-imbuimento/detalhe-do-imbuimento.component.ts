@@ -13,6 +13,8 @@ import { LucideAngularModule } from 'lucide-angular';
 export class DetalheDoImbuimentoComponent {
 @Input() imbuimentSelecionado: any = null;
 @Input() goldTokenValor: any = null;
+itemCopiadoIndex: number | null = null;
+private feedbackCopiadoTimeout: ReturnType<typeof setTimeout> | null = null;
 
 
 maisBarato(item: any){
@@ -67,9 +69,20 @@ marketMaisBarato(){
   return this.qualMaisBarato().melhor === "Market";
 }
 
-async copiarNome(nome: string) {
+async copiarNome(nome: string, index: number) {
   try {
     await navigator.clipboard.writeText(nome);
+    this.itemCopiadoIndex = index;
+
+    if (this.feedbackCopiadoTimeout) {
+      clearTimeout(this.feedbackCopiadoTimeout);
+    }
+
+    this.feedbackCopiadoTimeout = setTimeout(() => {
+      this.itemCopiadoIndex = null;
+      this.feedbackCopiadoTimeout = null;
+    }, 2000);
+
     console.log('Texto copiado com sucesso!');
   } catch (err) {
     console.error('Falha ao copiar: ', err);

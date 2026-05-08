@@ -124,6 +124,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.item-name span.nome-copiado {
+  color: #8ff0a4;
+  text-shadow: 0 0 14px rgba(143, 240, 164, 0.34);
 }
 
 .item input {
@@ -351,6 +360,10 @@
   transform: scale(1.12);
 
   opacity: 1;
+}
+
+.icon-copiar.icon-copiado {
+  color: #8ff0a4;
 }
 
 .icon-copiar:active {
