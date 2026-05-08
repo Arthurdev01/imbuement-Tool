@@ -18,7 +18,6 @@ imbuimentSelecionado: any = null;
 goldTokenValor: any = null;
 
 constructor(public imbuiment: ImbuimentService){
-this.imbuiment.imbuimentos
 }
 
 detalhes(imbuimentSelecionado: any = null) {
