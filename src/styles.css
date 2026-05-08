@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Google Sans", sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: #f4f0ff;
+  background:
+    radial-gradient(
+      ellipse 70% 38% at 50% -18%,
+      rgba(216, 180, 254, 0.13),
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      #120c17 0%,
+      #0b090e 55%,
+      #050405 100%
+    );
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: none;
+}
+
+button,
+input {
+  font-family: "Google Sans", sans-serif;
+  background: #151019;
+  color: #fbf7ff;
+  border: 1px solid #3b2a43;
+  border-radius: 6px;
+}
+
+input {
+  padding: 10px 12px;
+}
+
+button {
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e1624;
+  border-color: #d8b4fe;
+  color: #f3e8ff;
+}
