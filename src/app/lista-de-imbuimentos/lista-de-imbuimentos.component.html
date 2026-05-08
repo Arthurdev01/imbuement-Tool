@@ -1,13 +1,34 @@
-<ul>
-  <input
-    [(ngModel)]="goldTokenValor"
-    placeholder="Digite o valor do Gold Token"
-  />
-  <li *ngFor="let imbu of this.imbuiment.imbuimentos">
-    <button (click)="detalhes(imbu)">{{ imbu.nome }}</button>
-  </li>
-</ul>
-<app-detalhe-do-imbuimento
-  [imbuimentSelecionado]="imbuimentSelecionado"
-  [goldTokenValor]="goldTokenValor"
-></app-detalhe-do-imbuimento>
+<div class="pageWrapper" [class.hasDetail]="imbuimentSelecionado">
+  <div class="homeContainer">
+    <div class="topPanel">
+      <h1>Imbuement Tool</h1>
+
+      <div class="imbuList">
+        <button
+          *ngFor="let imbu of imbuiment.imbuimentos"
+          (click)="detalhes(imbu)"
+          class="imbuButton"
+          [class]="'imbuButton imbu--' + imbu.tipo"
+          [class.active]="imbuimentSelecionado?.nome === imbu.nome"
+        >
+          {{ imbu.nome }}
+        </button>
+      </div>
+
+      <input
+        [(ngModel)]="goldTokenValor"
+        mask="separator.2"
+        thousandSeparator=","
+        decimalMarker="."
+        placeholder="Valor do Gold Token"
+      />
+    </div>
+  </div>
+
+  @if (imbuimentSelecionado) {
+    <app-detalhe-do-imbuimento
+      [imbuimentSelecionado]="imbuimentSelecionado"
+      [goldTokenValor]="goldTokenValor"
+    ></app-detalhe-do-imbuimento>
+  }
+</div>

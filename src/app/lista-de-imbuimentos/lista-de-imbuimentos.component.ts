@@ -1,13 +1,14 @@
-import { CommonModule, NgFor } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { ImbuimentService } from '../../service/imbuiment.service';
 import { DetalheDoImbuimentoComponent } from "../detalhe-do-imbuimento/detalhe-do-imbuimento.component";
 import { FormsModule } from '@angular/forms';
+import { NgxMaskDirective } from 'ngx-mask';
 
 
 @Component({
   selector: 'app-lista-de-imbuimentos',
-  imports: [CommonModule, NgFor, DetalheDoImbuimentoComponent, FormsModule],
+  imports: [CommonModule, DetalheDoImbuimentoComponent, FormsModule,NgxMaskDirective],
   templateUrl: './lista-de-imbuimentos.component.html',
   styleUrl: './lista-de-imbuimentos.component.css'
 })
@@ -25,14 +26,3 @@ detalhes(imbuimentSelecionado: any = null) {
   }
 
 }
-interface item{
-  nome:string;
-  quantidade: number
-}
-interface  imbuimento{
-nome: string;
-itens: item[];
-}
-
-
-
