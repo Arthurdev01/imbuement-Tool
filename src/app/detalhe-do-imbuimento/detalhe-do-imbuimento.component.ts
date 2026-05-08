@@ -13,7 +13,6 @@ import { LucideAngularModule } from 'lucide-angular';
 export class DetalheDoImbuimentoComponent {
 @Input() imbuimentSelecionado: any = null;
 @Input() goldTokenValor: any = null;
-itemCopiadoIndex: number | null = null;
 private feedbackCopiadoTimeout: ReturnType<typeof setTimeout> | null = null;
 
 
@@ -69,17 +68,17 @@ marketMaisBarato(){
   return this.qualMaisBarato().melhor === "Market";
 }
 
-async copiarNome(nome: string, index: number) {
+async copiarNome(imbu: any) {
   try {
-    await navigator.clipboard.writeText(nome);
-    this.itemCopiadoIndex = index;
+    await navigator.clipboard.writeText(imbu.nomeItem);
+    imbu.copiado = true;
 
     if (this.feedbackCopiadoTimeout) {
       clearTimeout(this.feedbackCopiadoTimeout);
     }
 
     this.feedbackCopiadoTimeout = setTimeout(() => {
-      this.itemCopiadoIndex = null;
+      imbu.copiado = false;
       this.feedbackCopiadoTimeout = null;
     }, 2000);
 

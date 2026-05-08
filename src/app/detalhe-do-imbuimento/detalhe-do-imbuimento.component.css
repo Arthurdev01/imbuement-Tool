@@ -362,10 +362,6 @@
   opacity: 1;
 }
 
-.icon-copiar.icon-copiado {
-  color: #8ff0a4;
-}
-
 .icon-copiar:active {
   transform: scale(0.94);
 }
